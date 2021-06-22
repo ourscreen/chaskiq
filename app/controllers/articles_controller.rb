@@ -17,8 +17,8 @@ class ArticlesController < ApplicationController
     @sessionless = params[:sessionless]
 
     @h = {
-      http: Rails.env.production? ? "https://" : "http://",
-      ws: Rails.env.production? ? "wss://" : "ws://"
+      http: (Rails.env.production? || Rails.env.staging?) ? "https://" : "http://",
+      ws: (Rails.env.production? || Rails.env.staging?) ? "wss://" : "ws://"
     }
 
     @json_payload = {
