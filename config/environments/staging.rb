@@ -123,7 +123,8 @@ Rails.application.configure do
     ses_config.merge!(
       {
         server: "email.#{ENV['SES_REGION']}.amazonaws.com",
-        message_id_domain: "#{ENV['SES_REGION']}.amazonses.com"
+        message_id_domain: "#{ENV['SES_REGION']}.amazonses.com",
+        signature_version: 2
       }
     ) if ENV['SES_REGION']
 
