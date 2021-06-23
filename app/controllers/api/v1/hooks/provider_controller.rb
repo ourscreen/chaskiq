@@ -22,7 +22,7 @@ class Api::V1::Hooks::ProviderController < ApplicationController
 
   def process_event
     response = @integration_pkg.process_event(params)
-    head :ok
+    render status: 200, json: response
   end
 
   def find_application_package
